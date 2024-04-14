@@ -2,26 +2,6 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name ="robot">
     <xacro:include filename="inertial_macros.xacro"/>
 
-    <xacro:property name="chassis_length" value="0.444"/>
-    <xacro:property name="chassis_width" value="0.444"/>
-    <xacro:property name="chassis_height" value="0.152"/>
-    <xacro:property name="chassis_mass" value="1.0"/>
-
-    <!-- as there are two wheels but here common parameters are defined -->
-    <xacro:property name="wheel_radius" value="0.076"/>
-    <xacro:property name="wheel_thickness" value="0.076"/>
-    <xacro:property name="wheel_mass" value="0.05"/>
-    <xacro:property name="wheel_offset_x" value="0.226"/>
-    <xacro:property name="wheel_offset_y" value="0.1485"/>
-    <xacro:property name="wheel_offset_z" value="0.01"/>
-    <!-- there are two caster wheels but common parameters are defined    -->
-    <xacro:property name="caster_wheel_radius" value="0.08"/>
-    <xacro:property name="caster_wheel_mass" value="0.01"/>
-    <xacro:property name="caster_wheel_offset_x" value="0.075"/>
-    <xacro:property name="caster_wheel_offset_z" value="${0.101 - 0.08 + 0.08}"/>
-<!-- need to be check the above -->
-
-
     <!-- robot apearence -->
     <material name="white"> 
         <color rgba="1 1 1 1" />
@@ -46,15 +26,7 @@
  <!-- BASE LINK -->
     <link name="base_link">
     </link>
-<!-- BASE_FOOTPRINT LINK -->
-    <joint name="base_footprint_joint" type="fixed">
-        <parent link="base_link"/>
-        <child link="base_footprint"/>
-        <origin xyz="0 0 0" rpy="0 0 0"/>
-    </joint>
 
-    <link name="base_footprint">
-    </link>
  <!-- CHASSIS LINK -->
     <joint name="chassis_joint" type="fixed">
         <parent link="base_link"/>
